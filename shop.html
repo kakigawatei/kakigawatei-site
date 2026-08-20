@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お持ち帰り・通販｜新潟油そば 柿川亭グループ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --shu: #b3342a; --sumi: #1a1a1a; --hai: #666; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif; color: var(--sumi); background: #fff; line-height: 1.9; }
+  img { max-width: 100%; display: block; }
+  header {
+    position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+    padding: 14px 18px; font-size: 13px; background: rgba(255,255,255,.92); border-bottom: 1px solid #eee;
+  }
+  header a { color: var(--sumi); text-decoration: none; letter-spacing: .1em; }
+  header .back::before { content: "← "; }
+  main { max-width: 760px; margin: 0 auto; padding: 130px 22px 90px; }
+  .label { text-align: center; margin-bottom: 14px; }
+  .label .jp { color: var(--shu); font-size: 21px; letter-spacing: .26em; font-weight: 600; }
+  .label .en2 { display: block; color: #999; font-size: 11px; letter-spacing: .22em; margin-top: 6px; font-family: "Lato", sans-serif; }
+  .big { text-align: center; font-size: clamp(25px, 5.6vw, 38px); font-weight: 600; letter-spacing: .18em; margin-bottom: 20px; }
+  .lead { text-align: center; font-size: 14.5px; color: #444; margin-bottom: 56px; }
+  .items { display: grid; gap: 56px; }
+  .item { display: grid; gap: 20px; }
+  @media (min-width: 680px) {
+    .item { grid-template-columns: 1fr 1fr; align-items: center; }
+    .item.rev .photo { order: 2; }
+  }
+  .item .photo img { width: 100%; height: 280px; object-fit: cover; }
+  .item .badge { display: inline-block; background: var(--shu); color: #fff; font-size: 11.5px; letter-spacing: .16em; padding: 3px 12px; margin-bottom: 10px; }
+  .item h3 { font-size: 23px; font-weight: 600; letter-spacing: .12em; margin-bottom: 8px; }
+  .item .desc { font-size: 14px; color: #444; margin-bottom: 16px; }
+  .item .price { font-size: 30px; font-weight: 600; color: var(--shu); letter-spacing: .04em; margin-bottom: 16px; }
+  .item .price small { font-size: 12.5px; color: var(--hai); letter-spacing: .08em; }
+  .buy {
+    display: inline-block; text-decoration: none; text-align: center;
+    background: var(--sumi); color: #fff; font-size: 15px; letter-spacing: .22em; font-weight: 600;
+    padding: 15px 44px;
+  }
+  .buy:hover { background: var(--shu); }
+  .note {
+    margin: 60px 0 0; background: #faf9f7; border: 1px solid #e5e1d8; padding: 18px 20px;
+    font-size: 13px; color: #555;
+  }
+  .flow { margin-top: 64px; }
+  .flow h2 { text-align: center; font-size: 19px; font-weight: 600; letter-spacing: .26em; margin-bottom: 26px; }
+  .flow ol { list-style: none; display: grid; gap: 14px; max-width: 560px; margin: 0 auto; }
+  .flow li { display: flex; gap: 16px; align-items: baseline; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 14px; }
+  .flow .n { font-family: "Lato", sans-serif; font-size: 26px; color: var(--shu); font-weight: 300; min-width: 22px; }
+  footer { background: #111; color: #eee; padding: 46px 22px 36px; text-align: center; margin-top: 80px; }
+  footer .flinks { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+  footer .flinks a { color: #eee; text-decoration: none; font-size: 13.5px; letter-spacing: .14em; border-bottom: 1px solid #555; padding-bottom: 3px; }
+  footer .cp { font-size: 11px; color: #777; letter-spacing: .08em; font-family: "Lato", sans-serif; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back" href="index.html">HOMEへ戻る</a>
+  <a href="index.html#menu">お品書き</a>
+</header>
+
+<main>
+  <div class="label"><span class="jp">お持ち帰り・通販</span><span class="en2">Online shop</span></div>
+  <h1 class="big">お店の味を、そのまま冷蔵で</h1>
+  <p class="lead">お店で毎日仕込んでいる麺と特製ダレを、ご自宅にお届けします。ゆで時間は3分です。</p>
+
+  <div class="items">
+    <div class="item">
+      <div class="photo"><img src="assets/s-2400x1601_v-frms_webp_718b47f8-d4a5-4a68-9108-22fee5236984_middle.webp" alt="油そば 1食パック×3セット"></div>
+      <div>
+        <span class="badge">いちばん人気</span>
+        <h3>油そば 1食パック×3セット</h3>
+        <p class="desc">お店の味そのままの1食パックを3つセットで。特製ダレ付き。ご家族やギフトにもどうぞ。</p>
+        <p class="price">¥1,480 <small>（税込・送料別）</small></p>
+        <a class="buy" href="STRIPE_LINK_1">購入する</a>
+      </div>
+    </div>
+    <div class="item rev">
+      <div class="photo"><img src="assets/s-2400x1601_v-frms_webp_10c63cbe-a76b-4a90-92e0-cf79517a3c8e_middle.webp" alt="柿川亭の油そば お試し1食"></div>
+      <div>
+        <span class="badge">はじめての方に</span>
+        <h3>柿川亭の油そば（お試し1食）</h3>
+        <p class="desc">まずは1食から。麺と特製ダレのお試しパックです。</p>
+        <p class="price">¥600 <small>（税込・送料別）</small></p>
+        <a class="buy" href="STRIPE_LINK_2">購入する</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">❄️ 冷蔵商品です。お届け後は10℃以下で保存し、お早めにお召し上がりください（賞味期限：製造から2週間）。店頭でのお持ち帰りは各店舗でも承っています。</p>
+
+  <div class="flow">
+    <h2>ご注文からお届けまで</h2>
+    <ol>
+      <li><span class="n">1</span>「購入する」からStripeの安全な決済ページへ（クレジットカード・Apple Pay・Google Pay対応）</li>
+      <li><span class="n">2</span>お届け先とお支払い情報をご入力</li>
+      <li><span class="n">3</span>冷蔵便で発送。2〜4日ほどでお届けします</li>
+    </ol>
+  </div>
+</main>
+
+<footer>
+  <div class="flinks">
+    <a href="company.html">運営会社について</a>
+    <a href="fc.html">FC加盟店募集</a>
+  </div>
+  <p class="cp">Copyright © 2024 KAKIGAWATEI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

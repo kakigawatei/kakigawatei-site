@@ -1,0 +1,371 @@
+<!-- @dsCard group="Pages" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新潟油そば｜柿川亭グループ</title>
+<meta name="description" content="油そばは東京発祥の「スープのないラーメン」。柿川亭の油そばは王道のシンプルな盛り付けにオリジナルのタレと米油、そしてラー油と酢を絡めてご賞味いただきます。この油そばの文化を新潟から全国へお届けします。柿川亭は展開するエリアの地元の人々から愛されるお店となれることを目指しています。FC展開の申し込みも受付中！">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Barlow+Condensed:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --shu: #b3342a;
+    --sumi: #1a1a1a;
+    --hai: #666;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+    color: var(--sumi); background: #fff; line-height: 1.9;
+  }
+  img { max-width: 100%; display: block; }
+  .en { font-family: "Lato", sans-serif; }
+  .cond { font-family: "Barlow Condensed", sans-serif; }
+
+  /* ===== header ===== */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 6px;
+    padding: 14px 18px;
+    color: #fff; font-size: 13px;
+    background: linear-gradient(rgba(0,0,0,.45), transparent);
+  }
+  header nav { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; min-width: 0; flex: 1 1 200px; }
+  header nav a { color: #fff; text-decoration: none; letter-spacing: .1em; white-space: nowrap; }
+  header nav .sep { opacity: .55; margin: 0 6px; font-weight: 300; }
+  header .fc {
+    color: #fff; text-decoration: none; letter-spacing: .12em;
+    border: 1px solid rgba(255,255,255,.85); padding: 7px 14px;
+    white-space: nowrap; flex: 0 0 auto;
+  }
+  @media (max-width: 720px) {
+    header { font-size: 10.5px; padding: 10px 10px; }
+    header .fc { padding: 5px 8px; }
+  }
+
+  /* ===== hero ===== */
+  .hero { position: relative; height: clamp(560px, 100svh, 920px); overflow: hidden; background: #000; }
+  .hero .slide {
+    position: absolute; inset: 0; background-size: cover; background-position: center;
+    opacity: 0; animation: slidefade 25s infinite;
+  }
+  .hero .slide:nth-child(1) { animation-delay: 0s; }
+  .hero .slide:nth-child(2) { animation-delay: 5s; }
+  .hero .slide:nth-child(3) { animation-delay: 10s; }
+  .hero .slide:nth-child(4) { animation-delay: 15s; }
+  .hero .slide:nth-child(5) { animation-delay: 20s; }
+  @keyframes slidefade {
+    0% { opacity: 0; } 6% { opacity: 1; } 24% { opacity: 1; } 32% { opacity: 0; } 100% { opacity: 0; }
+  }
+  .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.28); }
+  .hero .logo {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #fff; text-shadow: 0 1px 14px rgba(0,0,0,.5);
+  }
+  .hero .logo .v {
+    writing-mode: vertical-rl; font-weight: 600;
+    font-size: clamp(46px, 9.6vw, 84px); letter-spacing: .34em; line-height: 1.5;
+  }
+  .hero .logo .v .chisai { font-size: .42em; letter-spacing: .5em; }
+  .hero .logo .v .abura { color: var(--shu); }
+  .hero .logo .roma { margin-top: 20px; font-size: clamp(13px, 2.6vw, 19px); letter-spacing: .82em; text-indent: .82em; font-weight: 300; }
+  .hero .scroll {
+    position: absolute; z-index: 2; bottom: 0; left: 50%;
+    color: #fff; font-size: 11px; letter-spacing: .3em;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    transform: translateX(-50%);
+  }
+  .hero .scroll::after { content: ""; width: 1px; height: 56px; background: rgba(255,255,255,.8); }
+
+  /* ===== 共通ラベル ===== */
+  section { padding: 96px 22px; }
+  .label { text-align: center; margin-bottom: 40px; }
+  .label .jp { color: var(--shu); font-size: 15px; letter-spacing: .3em; }
+  .label .en2 { display: block; color: #999; font-size: 11px; letter-spacing: .22em; margin-top: 4px; font-family: "Lato", sans-serif; }
+  .big {
+    text-align: center; font-size: clamp(27px, 6.4vw, 44px);
+    font-weight: 600; letter-spacing: .18em; margin-bottom: 46px;
+  }
+  .inner { max-width: 980px; margin: 0 auto; }
+
+  /* ===== about ===== */
+  .about-body { max-width: 640px; margin: 0 auto 54px; font-size: 15px; letter-spacing: .06em; }
+  .about-body p + p { margin-top: 1.6em; }
+  .about-photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; max-width: 980px; margin: 0 auto; }
+  .about-photos img { width: 100%; height: 240px; object-fit: cover; }
+
+  /* ===== ticker ===== */
+  .ticker { border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; overflow: hidden; white-space: nowrap; padding: 18px 0; }
+  .ticker span {
+    display: inline-block; font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(34px, 7vw, 58px); letter-spacing: .12em; color: var(--sumi);
+    animation: tick 30s linear infinite; font-weight: 300;
+  }
+  @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ===== kodawari ===== */
+  .kd { display: grid; gap: 60px; max-width: 980px; margin: 0 auto; }
+  .kd-item { display: grid; grid-template-columns: 1fr; gap: 22px; align-items: center; }
+  @media (min-width: 760px) {
+    .kd-item { grid-template-columns: 1.15fr 1fr; }
+    .kd-item:nth-child(even) .kd-photo { order: 2; }
+  }
+  .kd-photo img { width: 100%; height: 300px; object-fit: cover; }
+  .kd-text h3 { font-size: 21px; font-weight: 600; letter-spacing: .22em; margin-bottom: 14px; color: var(--sumi); }
+  .kd-text h3::before { content: "— "; color: var(--shu); }
+  .kd-text p { font-size: 14.5px; letter-spacing: .05em; }
+
+  /* ===== tabekata ===== */
+  .steps { display: grid; gap: 44px; max-width: 700px; margin: 0 auto 60px; }
+  .step { display: flex; gap: 22px; align-items: flex-start; }
+  .step .num { font-family: "Barlow Condensed", sans-serif; font-size: 64px; color: var(--shu); line-height: 1; font-weight: 300; min-width: 44px; }
+  .step h3 { font-size: 18.5px; font-weight: 600; letter-spacing: .16em; margin-bottom: 8px; }
+  .step p { font-size: 14.5px; }
+  .tk-photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; max-width: 980px; margin: 0 auto; }
+  .tk-photos img { width: 100%; height: 220px; object-fit: cover; }
+
+  /* ===== menu ===== */
+  .menu-bg { background: #faf9f7; }
+  .menu-list { max-width: 560px; margin: 0 auto 40px; }
+  .menu-row { display: flex; justify-content: space-between; align-items: baseline; padding: 13px 4px; border-bottom: 1px solid #e2ded6; font-size: 17px; letter-spacing: .1em; }
+  .menu-row .p { font-size: 16px; }
+  .sizes { display: flex; gap: 26px; justify-content: center; margin: 36px 0 8px; }
+  .size { text-align: center; }
+  .size .maru {
+    width: 84px; height: 84px; border: 1px solid var(--sumi); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    font-size: 21px; font-weight: 600; letter-spacing: .1em; margin: 0 auto 8px;
+  }
+  .size .g { font-size: 12px; color: var(--hai); }
+  .size-note { text-align: center; font-size: 12.5px; color: var(--hai); margin-bottom: 44px; }
+  .tare h4, .tp h4 {
+    display: inline-block; background: var(--shu); color: #fff;
+    font-size: 13px; letter-spacing: .2em; font-weight: 500; padding: 4px 14px; margin-bottom: 14px;
+  }
+  .tare { max-width: 560px; margin: 0 auto 40px; }
+  .tp-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 34px; max-width: 700px; margin: 0 auto 50px; }
+  .tp ul { list-style: none; font-size: 14.5px; letter-spacing: .06em; }
+  .tp li { padding: 3px 0; }
+  .menu-photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; max-width: 980px; margin: 0 auto; }
+  .menu-photos img { width: 100%; height: 220px; object-fit: cover; }
+
+  /* ===== shop ===== */
+  .shops { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; max-width: 980px; margin: 0 auto; }
+  .shop-card img { width: 100%; height: 210px; object-fit: cover; margin-bottom: 14px; }
+  .shop-card h3 { font-size: 18px; font-weight: 600; letter-spacing: .16em; margin-bottom: 8px; }
+  .shop-card h3 a { color: var(--sumi); text-decoration: none; }
+  .shop-card h3 .ig { font-size: 12px; color: var(--shu); margin-left: 8px; letter-spacing: .05em; }
+  .shop-card p { font-size: 13.5px; color: #333; letter-spacing: .04em; line-height: 1.9; }
+  .shop-card .open { color: var(--shu); font-weight: 600; }
+
+  /* ===== footer ===== */
+  footer { background: #111; color: #eee; padding: 60px 22px 40px; text-align: center; }
+  footer .flinks { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+  footer .flinks a { color: #eee; text-decoration: none; font-size: 14px; letter-spacing: .14em; border-bottom: 1px solid #555; padding-bottom: 3px; }
+  footer .un { font-size: 13px; color: #bbb; margin-bottom: 26px; }
+  footer .cp { font-size: 11px; color: #777; letter-spacing: .08em; font-family: "Lato", sans-serif; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="cond-nav">
+    <a href="#about">私たちについて</a><span class="sep">｜</span>
+    <a href="#kodawari">こだわり</a><span class="sep">｜</span>
+    <a href="#tabekata">食べ方</a><span class="sep">｜</span>
+    <a href="#menu">お品書き</a><span class="sep">｜</span>
+    <a href="#shop">店舗案内</a>
+  </nav>
+  <a class="fc" href="fc.html">FCお問い合わせ</a>
+</header>
+
+<div class="hero">
+  <div class="slide" style="background-image:url('assets/s-2400x1601_v-frms_webp_0baad882-9eae-4a06-b4d8-a6057e43362a.webp')"></div>
+  <div class="slide" style="background-image:url('assets/s-2400x1601_v-frms_webp_5b145f1c-3665-4850-8364-5ec2a7b749ff.webp')"></div>
+  <div class="slide" style="background-image:url('assets/s-2400x1601_v-frms_webp_f18cfd95-57c5-4f96-8f11-a9c2c007b874.webp')"></div>
+  <div class="slide" style="background-image:url('assets/s-2400x1601_v-frms_webp_f67d4a2a-49f4-480c-9101-075db5a5b9a3.webp')"></div>
+  <div class="slide" style="background-image:url('assets/s-2400x1601_v-frms_webp_f483af4a-6b31-4eff-a465-026971982562.webp')"></div>
+  <div class="logo">
+    <div class="v"><span class="chisai">新潟</span><span class="abura">油</span>そば<br>柿　川　亭</div>
+    <div class="roma en">KAKIGAWATEI</div>
+  </div>
+  <div class="scroll en">scroll</div>
+</div>
+
+<section id="about">
+  <div class="label"><span class="jp">柿川亭について</span><span class="en2">What is KAKIGAWATEI?</span></div>
+  <h2 class="big">油そばを文化に</h2>
+  <div class="about-body">
+    <p>油そばは東京発祥の「スープのないラーメン」です。柿川亭の油そばはチャーシュー・メンマ・海苔と王道のシンプルな盛り付けにオリジナルのタレと米油、そしてラー油と酢をお好みの分量で絡めてご賞味いただきます。また、多数あるトッピングの中からお好みに組み合わせて楽しめます。ラーメンに比べてカロリーや塩分を抑え、ヘルシーで女性や年配の方にも喜ばれています。</p>
+    <p>この油そばの文化を新潟から全国へお届けします。柿川亭は展開するエリアの地元の人々から愛されるお店となれることを目指しています。</p>
+  </div>
+  <div class="about-photos">
+    <img src="assets/s-2400x1601_v-frms_webp_7df5c69b-74ec-4191-9546-46c50089843d_middle.webp" alt="店内のようす">
+    <img src="assets/s-2400x1601_v-frms_webp_8817bc62-6c14-4146-af7d-d1e45c3cfa68_middle.webp" alt="仕込みのようす">
+    <img src="assets/s-2400x1601_v-frms_webp_490c41a1-f0b1-4d69-ab1b-51b68235bcba_middle.webp" alt="タレの器">
+  </div>
+</section>
+
+<div class="ticker"><span>ABURASOBA&nbsp;&nbsp;KAKIGAWATEI&nbsp;&nbsp;&nbsp;ABURASOBA&nbsp;&nbsp;KAKIGAWATEI&nbsp;&nbsp;&nbsp;ABURASOBA&nbsp;&nbsp;KAKIGAWATEI&nbsp;&nbsp;&nbsp;ABURASOBA&nbsp;&nbsp;KAKIGAWATEI&nbsp;&nbsp;&nbsp;</span></div>
+
+<section id="kodawari">
+  <div class="label"><span class="jp">こだわり</span><span class="en2">What is KAKIGAWATEI?</span></div>
+  <div class="kd">
+    <div class="kd-item">
+      <div class="kd-photo"><img src="assets/s-2073x1357_v-frms_webp_3ade791d-2ae9-4592-b1ae-1240e0bcc2b7_regular.webp" alt="国産米油"></div>
+      <div class="kd-text">
+        <h3>国産米油の使用</h3>
+        <p>米ヌカから抽出された国産の米油を使用することで、油っぽさを抑え、あっさりとしたヘルシーな味わいを実現しています。</p>
+      </div>
+    </div>
+    <div class="kd-item">
+      <div class="kd-photo"><img src="assets/s-2400x1601_v-frms_webp_5b145f1c-3665-4850-8364-5ec2a7b749ff_middle.webp" alt="独自調合のタレ"></div>
+      <div class="kd-text">
+        <h3>独自調合のタレ</h3>
+        <p>風味や食感を重視し、粉の配合を徹底して作られた麺と、独自に調合されたタレとの相性が抜群です。</p>
+      </div>
+    </div>
+    <div class="kd-item">
+      <div class="kd-photo"><img src="assets/s-2400x1601_v-frms_webp_bf62875e-ea1b-48c4-af7d-51327308245a_middle.webp" alt="豊富なトッピング"></div>
+      <div class="kd-text">
+        <h3>豊富なトッピング</h3>
+        <p>地元産のマスタードやバジル、長岡野菜を使ったマヨソースなど、多数のトッピングで自由にカスタマイズ。農家や飲食店と連携し、地元の食材を積極的に取り入れることで、地域とのつながりを大切にしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tabekata" style="background:#faf9f7">
+  <div class="label"><span class="jp">食べ方</span><span class="en2">How to eat</span></div>
+  <h2 class="big">シンプルにお好みで</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <div>
+        <h3>酢とラー油をかける</h3>
+        <p>初めに酢とラー油をどんぶり２〜３周程度回しかけてください。かけないと本来の油そばの味になりません。最低でも２周ほど、ためらわずにかけてください。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div>
+        <h3>むらなく混ぜる</h3>
+        <p>どんぶりの底にタレと油が敷いてあります。麺をひっくり返すようにむらなく混ぜてください。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div>
+        <h3>温かいうちに召し上がる</h3>
+        <p>油そばはスープがないので冷めやすく、味が落ちやすいです。どうぞ温かいうちに召し上がってください。油そばは酢とラー油をかける量やトッピングによって自分好みの味を作ることも楽しみのひとつです。美味しい油そばの食べ方を探してみてください。</p>
+      </div>
+    </div>
+  </div>
+  <div class="tk-photos">
+    <img src="assets/s-2400x1601_v-frms_webp_71ac1973-0d76-4467-84bd-2d392a3df30a_middle.webp" alt="食べ方1">
+    <img src="assets/s-2400x1601_v-frms_webp_fcfb6867-cef2-4c68-a608-bc56808cc090_middle.webp" alt="食べ方2">
+    <img src="assets/s-2400x1601_v-frms_webp_10c63cbe-a76b-4a90-92e0-cf79517a3c8e_middle.webp" alt="食べ方3">
+  </div>
+</section>
+
+<section id="menu" class="menu-bg" style="background:#fff">
+  <div class="label"><span class="jp">お品書き</span><span class="en2">Menu</span></div>
+  <h2 class="big">すべてはあなた次第</h2>
+  <div class="menu-list">
+    <div class="menu-row"><span>油そば</span><span class="p">850円</span></div>
+    <div class="menu-row"><span>焼豚油そば</span><span class="p">1030円</span></div>
+    <div class="menu-row"><span>グルテンフリー油そば</span><span class="p">1000円</span></div>
+    <div class="menu-row"><span>冷やし油そば</span><span class="p">880円</span></div>
+    <div class="menu-row"><span>冷やし焼豚油そば</span><span class="p">1080円</span></div>
+  </div>
+  <div class="sizes">
+    <div class="size"><div class="maru">並盛</div><span class="g">150g</span></div>
+    <div class="size"><div class="maru">大盛</div><span class="g">225g</span></div>
+    <div class="size"><div class="maru">特盛</div><span class="g">300g</span></div>
+  </div>
+  <p class="size-note">※大盛は＋50円　特盛は＋100円</p>
+  <div class="tare">
+    <h4>タレ</h4>
+    <div class="menu-row"><span>オリジナル</span><span class="p">0円</span></div>
+    <div class="menu-row"><span>煮干</span><span class="p">＋50円</span></div>
+    <div class="menu-row"><span>魚介かつお</span><span class="p">＋100円</span></div>
+    <div class="menu-row"><span>塩味</span><span class="p">＋50円</span></div>
+    <div class="menu-row"><span>塩味（レモン付き）</span><span class="p">＋100円</span></div>
+  </div>
+  <div class="tp-wrap">
+    <div class="tp">
+      <h4>120円トッピング</h4>
+      <ul>
+        <li>半熟卵</li><li>ネギごま</li><li>カレースパイス</li><li>明太子マヨネーズ</li>
+        <li>タケウチマスタード（旨味・辛口）</li><li>アルベーロバジル</li><li>えだまめマヨ</li>
+        <li>完熟トマトマヨ</li><li>かぐら南蛮味噌マヨ</li><li>キムチ</li><li>にんにく辛味噌</li>
+        <li>チーズ</li><li>麻辣醤</li>
+      </ul>
+    </div>
+    <div class="tp">
+      <h4>50円トッピング</h4>
+      <ul>
+        <li>レモン</li><li>青じそ</li><li>わさび</li><li>梅（梅肉）</li><li>柚子胡椒</li><li>鰹パウダー</li>
+      </ul>
+    </div>
+  </div>
+  <div class="menu-photos">
+    <img src="assets/s-2400x1601_v-frms_webp_718b47f8-d4a5-4a68-9108-22fee5236984_middle.webp" alt="油そば">
+    <img src="assets/s-2400x1601_v-frms_webp_c7fc94dd-6321-4689-a970-6301c13cf560_middle.webp" alt="調理のようす">
+    <img src="assets/s-2400x1801_v-frms_webp_27291dc1-9cae-443f-a1bb-c097e0380a34_middle.webp" alt="麺上げ">
+  </div>
+</section>
+
+<section id="shop" style="background:#faf9f7">
+  <div class="label"><span class="jp">店舗案内</span><span class="en2">Shop information</span></div>
+  <div class="shops">
+    <div class="shop-card">
+      <img src="assets/s-1024x768_v-fs_webp_284312ee-35c1-4979-b2da-364fe519c2ea.webp" alt="長岡本店">
+      <h3><a href="https://www.instagram.com/kakigawatei/">長岡本店<span class="ig">Instagram</span></a></h3>
+      <p>〒940-0081 新潟県長岡市南町1-10-16<br>
+      ⚫︎営業時間<br>11:00〜14:30、17:00〜20:15<br>⚫︎定休日／不定休</p>
+    </div>
+    <div class="shop-card">
+      <img src="assets/s-4284x5712_v-frms_webp_f7a834cf-44d1-43e3-8b5f-614df53a375e_middle.webp" alt="新潟大学前店">
+      <h3><a href="https://www.instagram.com/kakigawateisindaimae/">新潟大学前店<span class="ig">Instagram</span></a></h3>
+      <p>〒950-2111 新潟県新潟市西区大学南2-30-38<br>
+      ⚫︎営業時間<br>11:00〜14:30、17:00〜24:00<br>※日曜は夜営業22:00まで<br>⚫︎定休日／月曜</p>
+    </div>
+    <div class="shop-card">
+      <img src="assets/s-1108x1477_v-fms_webp_06f59b2a-444e-4d89-ba84-b69775ebe040_middle.webp" alt="仙台連坊店">
+      <h3><a href="https://www.instagram.com/kakigawatei_sendai">仙台連坊店<span class="ig">Instagram</span></a></h3>
+      <p>〒984-0053 宮城県仙台市若林区連坊小路81 熊谷ビル103<br>
+      ⚫︎営業時間<br>11:30〜14:30、17:00〜21:15<br>※土日は11:00から<br>⚫︎定休日／不定休</p>
+    </div>
+    <div class="shop-card">
+      <img src="assets/s-4284x5712_v-frms_webp_5a45cfae-539e-4ec7-a42c-bf686e960964_middle.webp" alt="白山市場店">
+      <h3><a href="https://www.instagram.com/kakigawatei_hakusan">白山市場店<span class="ig">Instagram</span></a></h3>
+      <p>〒951-8131 新潟県新潟市中央区白山浦2丁目180-3<br>
+      ⚫︎営業時間<br>日・月　11:00〜19:00<br>火・水　11:00〜14:00　17:00〜20:00<br>木　16:00〜20:00<br>金・土　11:00〜14:00　17:00〜20:00<br>⚫︎定休日／不定休</p>
+    </div>
+    <div class="shop-card">
+      <img src="assets/s-2400x1727_v-frms_webp_b89f0a0d-ecae-4af7-8455-b404b917a375_middle.webp" alt="福島店">
+      <h3><a href="https://www.instagram.com/kakigawatei_fukushima">福島店<span class="ig">Instagram</span></a></h3>
+      <p>〒960-0112 福島県福島市南矢野目古屋敷56-24<br>
+      ⚫︎営業時間<br>11:00〜14:00　17:00〜20:00<br>⚫︎定休日／水・木曜日</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flinks">
+    <a href="company.html">運営会社について</a>
+    <a href="fc.html">FC加盟店募集</a>
+  </div>
+  <p class="un">運営／株式会社バウ</p>
+  <p class="cp">Copyright © 2024 KAKIGAWATEI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+

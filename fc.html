@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FC加盟店お問い合わせ｜新潟油そば 柿川亭グループ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --shu: #b3342a; --sumi: #1a1a1a; --hai: #666; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif; color: var(--sumi); background: #fff; line-height: 1.9; }
+  header {
+    position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+    padding: 14px 18px; font-size: 13px; background: rgba(255,255,255,.92); border-bottom: 1px solid #eee;
+  }
+  header a { color: var(--sumi); text-decoration: none; letter-spacing: .1em; }
+  header .back { display: flex; align-items: center; gap: 6px; }
+  header .back::before { content: "←"; }
+  main { max-width: 640px; margin: 0 auto; padding: 130px 22px 90px; }
+  .label { text-align: center; margin-bottom: 46px; }
+  .label .jp { color: var(--shu); font-size: 21px; letter-spacing: .26em; font-weight: 600; }
+  .label .en2 { display: block; color: #999; font-size: 11px; letter-spacing: .22em; margin-top: 6px; font-family: "Lato", sans-serif; }
+  .intro { font-size: 14.5px; letter-spacing: .04em; margin-bottom: 18px; }
+  .intro + .intro { color: #555; font-size: 13.5px; margin-bottom: 52px; }
+  form { display: grid; gap: 26px; }
+  .fi label.t { display: block; font-size: 14.5px; font-weight: 600; letter-spacing: .12em; margin-bottom: 8px; }
+  .req { display: inline-block; background: var(--shu); color: #fff; font-size: 10.5px; letter-spacing: .1em; padding: 1px 8px; margin-left: 10px; vertical-align: 2px; }
+  .fi input[type="text"], .fi input[type="tel"], .fi input[type="email"], .fi textarea {
+    width: 100%; border: 1px solid #ccc; background: #faf9f7; padding: 12px 12px;
+    font-family: inherit; font-size: 15px;
+  }
+  .fi input:focus, .fi textarea:focus { outline: 2px solid var(--shu); background: #fff; }
+  .fi .note { font-size: 12px; color: var(--hai); margin-top: 6px; }
+  .radios { display: flex; gap: 22px; flex-wrap: wrap; font-size: 14.5px; }
+  .radios label { display: flex; align-items: center; gap: 7px; }
+  .radios input { accent-color: var(--shu); width: 17px; height: 17px; }
+  textarea { min-height: 130px; resize: vertical; }
+  .pp { background: #faf9f7; border: 1px solid #e5e1d8; padding: 16px 18px; font-size: 12.5px; color: #555; }
+  .pp label { display: flex; gap: 9px; align-items: flex-start; font-size: 14px; color: var(--sumi); font-weight: 600; margin-bottom: 10px; }
+  .pp input { accent-color: var(--shu); width: 17px; height: 17px; margin-top: 5px; }
+  button {
+    font-family: inherit; font-size: 16px; letter-spacing: .22em; font-weight: 600;
+    background: var(--sumi); color: #fff; border: none; padding: 17px 0; cursor: pointer;
+  }
+  button:hover { background: var(--shu); }
+  footer { background: #111; color: #eee; padding: 46px 22px 36px; text-align: center; }
+  footer .flinks { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+  footer .flinks a { color: #eee; text-decoration: none; font-size: 13.5px; letter-spacing: .14em; border-bottom: 1px solid #555; padding-bottom: 3px; }
+  footer .cp { font-size: 11px; color: #777; letter-spacing: .08em; font-family: "Lato", sans-serif; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back" href="index.html">HOMEへ戻る</a>
+  <a href="index.html#shop">店舗案内</a>
+</header>
+
+<main>
+  <div class="label"><span class="jp">FC加盟店お問い合わせ</span><span class="en2">Contact</span></div>
+
+  <p class="intro">新潟油そば 柿川亭では、東京発祥の油そばを新潟から全国へ、新潟の「美味しい」が詰まった油そば専門店としてのFCを全国展開しております。新潟県産の食材を使用して差別化された「柿川亭の油そば」は多くのリピーターを獲得し、簡易オペレーションの中でも高利益率を実現します。<br>
+  ①起業したい方　②複数店舗展開を考えている方　③既存ラーメン店からブランド変更したい、などお気軽にお問い合わせください。FC資料をお送りいたします。</p>
+  <p class="intro">油そばを食べに来ていただいているお客様のお問い合わせは、各店舗InstagramのDMよりお願いいたします。</p>
+
+  <!-- 送信先: formsubmit.co 経由で kakigawatei@gmail.com へ（初回送信時に1度だけ有効化メールが届く） -->
+  <form action="https://formsubmit.co/kakigawatei@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="【柿川亭】FC加盟のお問い合わせ">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://kakigawatei.com/fc-thanks.html">
+    <div class="fi">
+      <label class="t">問い合わせ種別<span class="req">必須</span></label>
+      <div class="radios">
+        <label><input type="radio" name="種別" value="個人" required>個人</label>
+        <label><input type="radio" name="種別" value="法人">法人</label>
+      </div>
+    </div>
+    <div class="fi">
+      <label class="t">お名前<span class="req">必須</span></label>
+      <input type="text" name="お名前" required>
+      <p class="note">※法人の場合は社名もご記入ください</p>
+    </div>
+    <div class="fi">
+      <label class="t">電話番号<span class="req">必須</span></label>
+      <div class="radios" style="margin-bottom:10px">
+        <label><input type="radio" name="電話種別" value="ご自宅" required>ご自宅</label>
+        <label><input type="radio" name="電話種別" value="携帯電話">携帯電話</label>
+        <label><input type="radio" name="電話種別" value="会社">会社</label>
+      </div>
+      <input type="tel" name="電話番号" required>
+    </div>
+    <div class="fi">
+      <label class="t">郵便番号<span class="req">必須</span></label>
+      <input type="text" name="郵便番号" required>
+    </div>
+    <div class="fi">
+      <label class="t">ご住所<span class="req">必須</span></label>
+      <input type="text" name="ご住所" required>
+    </div>
+    <div class="fi">
+      <label class="t">E-mail<span class="req">必須</span></label>
+      <input type="email" name="email" required>
+    </div>
+    <div class="fi">
+      <label class="t">連絡方法希望<span class="req">必須</span></label>
+      <div class="radios" style="margin-bottom:10px">
+        <label><input type="radio" name="連絡方法" value="電話" required>電話</label>
+        <label><input type="radio" name="連絡方法" value="E-mail">E-mail</label>
+      </div>
+      <input type="text" name="電話の都合のいい時間帯">
+      <p class="note">※お電話の場合は都合のいい時間帯をご記入ください</p>
+    </div>
+    <div class="fi">
+      <label class="t">開業希望エリア（都道府県・市）<span class="req">必須</span></label>
+      <input type="text" name="開業希望エリア" required>
+    </div>
+    <div class="fi">
+      <label class="t">開業希望理由<span class="req">必須</span></label>
+      <textarea name="開業希望理由" required></textarea>
+    </div>
+    <div class="pp">
+      <label><input type="checkbox" required>下記プライバシーポリシーに同意する</label>
+      当社は収集した個人情報を、①サービス提供のため②お問い合わせ対応のため③サービス改善や新商品・新サービスの案内のため④法令遵守および法的義務の履行のため、以外では使用いたしません。また、法令に基づく場合やお客様の同意がある場合を除き、収集した個人情報を第三者に提供いたしません。
+    </div>
+    <button type="submit">この内容で送信する</button>
+  </form>
+</main>
+
+<footer>
+  <div class="flinks">
+    <a href="company.html">運営会社について</a>
+    <a href="fc.html">FC加盟店募集</a>
+  </div>
+  <p class="cp">Copyright © 2024 KAKIGAWATEI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
