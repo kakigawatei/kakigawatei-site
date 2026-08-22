@@ -13,7 +13,8 @@
     if (me) BASE = me.replace(/assets\/mode\.js.*$/, "");
   } catch (e) {}
 
-  /* ---- 1. 写真 → アニメ絵 の対応表（ファイル名の一部で引く） ---- */
+  /* ---- 1. 写真 → アニメ絵 の対応表（ファイル名の一部で引く）
+     🟥masa指示(2026-08-22): 同じ絵を2箇所で使い回さない＝1枚1箇所 ---- */
   var ART = [
     // ヒーロー（背景スライド）
     ["0baad882", "assets/anime/a21_iriguchi_yoru.webp"],
@@ -35,14 +36,14 @@
     ["10c63cbe", "assets/anime/a19_gakusei_danran.webp"],
     // お品書き
     ["menu-aburasoba", "assets/anime/a02_donburi_top.webp"],
-    ["c7fc94dd", "assets/anime/a10_chef_yugiri.webp"],
-    ["f42036ed", "assets/anime/a17_hashi_te.webp"],
-    // 店舗案内（本店以外はまだイラストが無いので、雰囲気の近いものを当てる）
+    ["c7fc94dd", "assets/anime/food_chori.webp"],
+    ["f42036ed", "assets/anime/food_rayu.webp"],
+    // 店舗案内（各店の実写からGPT Image 2で起こした専用イラスト）
     ["27291dc1", "assets/anime/gaikan_v2.webp"],
-    ["284312ee", "assets/anime/a15_noren_kabe.webp"],
-    ["f7a834cf", "assets/anime/a11_iriguchi_teddy.webp"],
-    ["06f59b2a", "assets/anime/a09_zashiki_mado.webp"],
-    ["fukushima-shop-web", "assets/anime/a07_zashiki_tv.webp"]
+    ["284312ee", "assets/anime/shop_niidai.webp"],
+    ["f7a834cf", "assets/anime/shop_sendai.webp"],
+    ["06f59b2a", "assets/anime/shop_hakusan.webp"],
+    ["fukushima-shop-web", "assets/anime/shop_fukushima.webp"]
   ];
 
   function animeFor(url) {
@@ -56,7 +57,8 @@
   function abs(p) { return p ? BASE + p : p; }
 
   /* ---- 2. 日本語 → 英語の辞書（キーは画面に出ている文字そのもの） ---- */
-  var EN = {
+  var DICT = {};
+  DICT.en = {
     "私たちについて": "About",
     "こだわり": "Our Craft",
     "食べ方": "How to Eat",
@@ -147,13 +149,97 @@
     "運営／株式会社バウ": "Operated by BAU Inc."
   };
 
+  DICT.zh = {
+    "私たちについて": "关于我们",
+    "こだわり": "我们的坚持",
+    "食べ方": "吃法",
+    "お品書き": "菜单",
+    "お持ち帰り・通販": "外带・网购",
+    "店舗案内": "门店",
+    "FCお問い合わせ": "加盟咨询",
+    "柿川亭について": "关于柿川亭",
+    "油そばを文化に": "让油拌面成为一种文化",
+    "油そばは東京発祥の「スープのないラーメン」です。柿川亭の油そばはチャーシュー・メンマ・海苔と王道のシンプルな盛り付けにオリジナルのタレと米油、そしてラー油と酢をお好みの分量で絡めてご賞味いただきます。また、多数あるトッピングの中からお好みに組み合わせて楽しめます。ラーメンに比べてカロリーや塩分を抑え、ヘルシーで女性や年配の方にも喜ばれています。": "油拌面是发源于东京的「没有汤的拉面」。柿川亭的油拌面配上叉烧、笋干和海苔，简单而正统。碗底铺着独家酱汁与国产米糠油，请按自己的喜好加入辣油和醋，充分拌匀后享用。还可以从众多配料中自由搭配。热量和盐分都比拉面低，很受女性和年长客人欢迎。",
+    "この油そばの文化を新潟から全国へお届けします。柿川亭は展開するエリアの地元の人々から愛されるお店となれることを目指しています。": "我们把这份油拌面文化从新潟带向日本各地，希望在每一个落脚的城市，都能成为当地人喜爱的一家店。",
+    "国産米油の使用": "使用国产米糠油",
+    "米ヌカから抽出された国産の米油を使用することで、油っぽさを抑え、あっさりとしたヘルシーな味わいを実現しています。": "选用日本国产米糠榨取的米油，减少油腻感，口味清爽而健康。",
+    "独自調合のタレ": "独家调配的酱汁",
+    "風味や食感を重視し、粉の配合を徹底して作られた麺と、独自に調合されたタレとの相性が抜群です。": "面粉配比经过反复调整，讲究香气与口感，与我们自己调配的酱汁相得益彰。",
+    "豊富なトッピング": "丰富的配料",
+    "地元産のマスタードやバジル、長岡野菜を使ったマヨソースなど、多数のトッピングで自由にカスタマイズ。農家や飲食店と連携し、地元の食材を積極的に取り入れることで、地域とのつながりを大切にしています。": "本地产的芥末、罗勒，还有用长冈蔬菜做的蛋黄酱等，众多配料可自由搭配。我们与农户和同行合作，积极使用当地食材，重视与这片土地的联系。",
+    "油そばの召し上がり方": "油拌面的吃法",
+    "酢とラー油をかける": "1. 先加醋和辣油",
+    "初めに酢とラー油をどんぶり２〜３周程度回しかけてください。かけないと本来の油そばの味になりません。最低でも２周ほど、ためらわずにかけてください。": "先沿着碗边淋两到三圈醋和辣油。不加的话就吃不出油拌面本来的味道，请放心大胆地加。",
+    "むらなく混ぜる": "2. 拌匀",
+    "どんぶりの底にタレと油が敷いてあります。麺をひっくり返すようにむらなく混ぜてください。": "碗底铺着酱汁和油，请把面翻上来，均匀拌开。",
+    "温かいうちに召し上がる": "3. 趁热吃",
+    "油そばはスープがないので冷めやすく、味が落ちやすいです。どうぞ温かいうちに召し上がってください。油そばは酢とラー油をかける量やトッピングによって自分好みの味を作ることも楽しみのひとつです。美味しい油そばの食べ方を探してみてください。": "因为没有汤，凉得快、味道也容易变差，请趁热享用。调整醋、辣油的份量和配料，做出属于自己的味道，也是油拌面的乐趣之一。",
+    "基本メニュー": "基本菜单",
+    "油そば": "油拌面",
+    "焼豚油そば": "叉烧油拌面",
+    "グルテンフリー油そば": "无麸质油拌面",
+    "冷やし油そば": "冷制油拌面",
+    "冷やし焼豚油そば": "冷制叉烧油拌面",
+    "並盛": "普通份",
+    "大盛": "大份",
+    "特盛": "特大份",
+    "※大盛は＋50円\u3000特盛は＋100円": "大份 +50日元 / 特大份 +100日元",
+    "カスタマイズ": "自由搭配",
+    "タレ": "酱汁",
+    "オリジナル": "原味",
+    "煮干": "小鱼干",
+    "魚介かつお": "鲣鱼海鲜",
+    "塩味": "盐味",
+    "塩味（レモン付き）": "盐味（附柠檬）",
+    "豚骨": "豚骨",
+    "120円トッピング": "配料 120日元",
+    "半熟卵": "溏心蛋",
+    "ネギごま": "葱花芝麻",
+    "カレースパイス": "咖喱香料",
+    "明太子マヨネーズ": "明太子蛋黄酱",
+    "アルベーロバジル": "罗勒酱",
+    "えだまめマヨ": "毛豆蛋黄酱",
+    "完熟トマトマヨ": "番茄蛋黄酱",
+    "かぐら南蛮味噌マヨ": "神乐南蛮辣味噌蛋黄酱",
+    "キムチ": "泡菜",
+    "にんにく辛味噌": "蒜香辣味噌",
+    "チーズ": "芝士",
+    "麻辣醤": "麻辣酱",
+    "50円トッピング": "配料 50日元",
+    "レモン": "柠檬",
+    "青じそ": "青紫苏",
+    "わさび": "芥末",
+    "梅（梅肉）": "梅肉",
+    "柚子胡椒": "柚子胡椒",
+    "鰹パウダー": "鲣鱼粉",
+    "長岡本店": "长冈本店",
+    "新潟大学前店": "新潟大学前店",
+    "仙台連坊店": "仙台连坊店",
+    "白山市場店": "白山市场店",
+    "福島店": "福岛店",
+    "⚫︎営業時間": "● 营业时间",
+    "⚫︎定休日／不定休": "● 休息日：不固定",
+    "⚫︎定休日／月曜": "● 休息日：周一",
+    "⚫︎定休日／水・木曜日": "● 休息日：周三・周四",
+    "※日曜は夜営業22:00まで": "* 周日晚间营业至22:00",
+    "※土日は11:00から": "* 周六周日11:00开始",
+    "日・月\u300011:00〜19:00": "周日・周一 11:00-19:00",
+    "火・水\u300011:00〜14:00\u300017:00〜20:00": "周二・周三 11:00-14:00 / 17:00-20:00",
+    "木\u300016:00〜20:00": "周四 16:00-20:00",
+    "金・土\u300011:00〜14:00\u300017:00〜20:00": "周五・周六 11:00-14:00 / 17:00-20:00",
+    "運営会社について": "公司信息",
+    "FC加盟店募集": "招募加盟店",
+    "運営／株式会社バウ": "运营／株式会社BAU"
+  };
+
+
   /* ---- 3. 置換の実装 ---- */
   var textNodes = [];
   function collect(node) {
     for (var n = node.firstChild; n; n = n.nextSibling) {
       if (n.nodeType === 3) {
         var t = n.nodeValue.trim();
-        if (t && EN[t]) textNodes.push({ node: n, jp: n.nodeValue, en: n.nodeValue.replace(t, EN[t]) });
+        if (t && (DICT.en[t] || DICT.zh[t])) textNodes.push({ node: n, jp: n.nodeValue, key: t });
       } else if (n.nodeType === 1 && n.tagName !== "SCRIPT" && n.tagName !== "STYLE") {
         collect(n);
       }
@@ -180,13 +266,19 @@
     }, 260);
   }
 
+  var LANGS = ["ja", "en", "zh"];
+  var LANG_LABEL = { ja: "日本語", en: "English", zh: "中文" };
+
   function setLang(lang) {
+    var d = DICT[lang];
     textNodes.forEach(function (it) {
-      it.node.nodeValue = lang === "en" ? it.en : it.jp;
+      it.node.nodeValue = d && d[it.key] ? it.jp.replace(it.key, d[it.key]) : it.jp;
     });
     document.documentElement.dataset.lang = lang;
-    document.documentElement.lang = lang === "en" ? "en" : "ja";
+    document.documentElement.lang = lang;
     try { localStorage.setItem("kg_lang", lang); } catch (e) {}
+    // 🟥masa指示: 外国語のときは写真で見せる（アニメで見たい人はボタンで戻せる）
+    if (lang !== "ja" && document.documentElement.dataset.art === "anime") setArt("real");
   }
 
   function build() {
@@ -223,11 +315,12 @@
     window.__kgPaint = paint;
     function paint() {
       var anime = document.documentElement.dataset.art === "anime";
-      var en = document.documentElement.dataset.lang === "en";
       bArt.textContent = anime ? "実写にもどす" : "アニメで見る";
       bArt.setAttribute("aria-pressed", anime ? "true" : "false");
-      bLang.textContent = en ? "日本語" : "English";
-      bLang.setAttribute("aria-pressed", en ? "true" : "false");
+      var lang = document.documentElement.dataset.lang || "ja";
+      var next = LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length];
+      bLang.textContent = LANG_LABEL[next];
+      bLang.setAttribute("aria-pressed", lang !== "ja" ? "true" : "false");
     }
 
     bArt.addEventListener("click", function () {
@@ -235,7 +328,8 @@
       paint();
     });
     bLang.addEventListener("click", function () {
-      setLang(document.documentElement.dataset.lang === "en" ? "ja" : "en");
+      var lang = document.documentElement.dataset.lang || "ja";
+      setLang(LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length]);
       paint();
     });
 
@@ -248,7 +342,7 @@
     document.documentElement.dataset.art = "real";
     document.documentElement.dataset.lang = "ja";
     if (savedArt === "anime") setArt("anime");
-    if (savedLang === "en") setLang("en");
+    if (savedLang && LANGS.indexOf(savedLang) > 0) setLang(savedLang);
     paint();
 
     // ヒーローを過ぎたらボタンの色を反転（白背景で読めるように）
