@@ -1,0 +1,92 @@
+/* ===== 切替モード（絵柄・言語）=====
+   masa依頼 2026-08-22「タブを1個つけると全部アニメ調になる／外国人向けになる」
+   レイアウト・並び順・構造は一切いじらない。中身（写真・書体・色・文章）だけ差し替える。 */
+
+/* --- 切替ボタン（右上・ヘッダーの下） --- */
+.modebar {
+  position: fixed;
+  top: 58px;
+  right: 16px;
+  z-index: 120;
+  display: flex;
+  gap: 8px;
+  font-family: "Lato", sans-serif;
+}
+@media (max-width: 720px) {
+  .modebar { top: 52px; right: 10px; gap: 6px; }
+}
+.modebar button {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, .8);
+  background: rgba(0, 0, 0, .38);
+  color: #fff;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 12px;
+  letter-spacing: .08em;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background .25s, color .25s, border-color .25s;
+  white-space: nowrap;
+}
+@media (max-width: 720px) {
+  .modebar button { padding: 6px 11px; font-size: 11px; }
+}
+.modebar button:hover { background: rgba(0, 0, 0, .58); }
+.modebar button[aria-pressed="true"] {
+  background: #fff;
+  color: #b3342a;
+  border-color: #fff;
+  font-weight: 700;
+}
+/* ヒーローを過ぎたら地の色に馴染ませる */
+.modebar.solid button {
+  border-color: rgba(26, 26, 26, .3);
+  background: rgba(255, 255, 255, .9);
+  color: #1a1a1a;
+}
+.modebar.solid button[aria-pressed="true"] { background: #b3342a; color: #fff; border-color: #b3342a; }
+
+/* --- 切り替わる瞬間をなめらかに（絵が"描き変わる"ように見せる） --- */
+.hero .slide, section img { transition: opacity .45s ease; }
+html.swapping .hero .slide, html.swapping section img { opacity: 0; }
+
+/* --- アニメモード --- */
+html[data-art="anime"] body {
+  font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+}
+html[data-art="anime"] {
+  --shu: #d8452f;
+}
+html[data-art="anime"] .hero::after { background: rgba(0, 0, 0, .18); }
+/* 明朝の縦組みロゴだけは書体を残す（店の顔なので） */
+html[data-art="anime"] .hero .logo .v {
+  font-family: "Shippori Mincho", "Yu Mincho", serif;
+}
+html[data-art="anime"] section img { border-radius: 10px; }
+
+/* アニメモードのヒーロー動画（実写モードでは出さない） */
+.hero-anime {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+html[data-art="anime"] .hero-anime { opacity: 1; }
+html[data-art="anime"] .hero .slide { animation: none; opacity: 0; }
+
+/* --- 英語モード --- */
+html[data-lang="en"] body {
+  font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.75;
+}
+html[data-lang="en"] .hero .logo .v {
+  font-family: "Shippori Mincho", "Yu Mincho", serif;
+}
+/* 英語だと文字数が伸びるので、詰まりやすい所だけ余白を足す */
+html[data-lang="en"] .label .en2 { display: none; }
