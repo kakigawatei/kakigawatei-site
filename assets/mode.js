@@ -59,6 +59,23 @@
   /* ---- 2. 日本語 → 英語の辞書（キーは画面に出ている文字そのもの） ---- */
   var DICT = {};
   DICT.en = {
+    "HOMEへ戻る": "Back to home",
+    "お店の味を、そのまま冷蔵で": "Our shop's bowl, chilled and sent to you",
+    "お店で毎日仕込んでいる麺と特製ダレを、ご自宅にお届けします。ゆで時間は3分です。": "The noodles and sauce we prepare every day, delivered to your door. Three minutes in boiling water and it is ready.",
+    "いちばん人気": "Most popular",
+    "油そば 1食パック×3セット": "Abura Soba — 3 single-serving packs",
+    "お店の味そのままの1食パックを3つセットで。特製ダレ付き。ご家族やギフトにもどうぞ。": "Three single-serving packs, sauce included. Good for the family, and as a gift.",
+    "（税込・送料別）": "(tax incl., shipping extra)",
+    "購入する": "Buy now",
+    "はじめての方に": "First time?",
+    "柿川亭の油そば（お試し1食）": "Kakigawatei Abura Soba (one pack to try)",
+    "まずは1食から。麺と特製ダレのお試しパックです。": "Start with one. Noodles and our sauce, packed to try.",
+    "❄️ 冷蔵商品です。お届け後は10℃以下で保存し、お早めにお召し上がりください（賞味期限：製造から2週間）。冷蔵クール便（佐川急便）でお届けします。送料は全国一律920円です。店頭でのお持ち帰りは各店舗でも承っています。": "❄️ Chilled product. Keep below 10°C after delivery and eat soon (best before: two weeks from production). Sent by refrigerated courier (Sagawa). Shipping is a flat 920 yen. Delivery within Japan only — we cannot ship overseas. Takeout is also available at each shop.",
+    "特定商取引法に基づく表記": "Legal notice (Specified Commercial Transactions Act)",
+    "ご注文からお届けまで": "From order to delivery",
+    "「購入する」から決済ページへ（クレジットカード・Apple Pay・Google Pay対応）": "Tap Buy now to reach the payment page (credit card, Apple Pay, Google Pay)",
+    "お届け先とお支払い情報をご入力": "Enter your delivery address in Japan and payment details",
+    "冷蔵便で発送。2〜4日ほどでお届けします": "Shipped chilled, arriving in about 2-4 days",
     "タケウチマスタード（旨味・辛口）": "Takeuchi mustard (umami / hot)",
     "〒940-0081 新潟県長岡市南町1-10-16": "1-10-16 Minamimachi, Nagaoka, Niigata 940-0081",
     "〒950-2111 新潟県新潟市西区大学南2-30-38": "2-30-38 Daigaku-minami, Nishi-ku, Niigata 950-2111",
@@ -156,6 +173,23 @@
   };
 
   DICT.zh = {
+    "HOMEへ戻る": "返回首页",
+    "お店の味を、そのまま冷蔵で": "把店里的味道，冷藏送到家",
+    "お店で毎日仕込んでいる麺と特製ダレを、ご自宅にお届けします。ゆで時間は3分です。": "把我们每天现做的面和特制酱汁送到您家。煮3分钟即可享用。",
+    "いちばん人気": "最受欢迎",
+    "油そば 1食パック×3セット": "油拌面 单人份×3包套装",
+    "お店の味そのままの1食パックを3つセットで。特製ダレ付き。ご家族やギフトにもどうぞ。": "三包单人份，附特制酱汁。适合全家享用，也适合送礼。",
+    "（税込・送料別）": "（含税・不含运费）",
+    "購入する": "立即购买",
+    "はじめての方に": "第一次尝试",
+    "柿川亭の油そば（お試し1食）": "柿川亭油拌面（试吃单人份）",
+    "まずは1食から。麺と特製ダレのお試しパックです。": "先从一份开始。面与特制酱汁的试吃装。",
+    "❄️ 冷蔵商品です。お届け後は10℃以下で保存し、お早めにお召し上がりください（賞味期限：製造から2週間）。冷蔵クール便（佐川急便）でお届けします。送料は全国一律920円です。店頭でのお持ち帰りは各店舗でも承っています。": "❄️ 本商品为冷藏品。收到后请在10℃以下保存并尽早食用（保质期：生产后两周）。以冷藏宅配（佐川急便）配送，运费全国统一920日元。仅限日本国内配送，无法寄往海外。各门店也可现场外带。",
+    "特定商取引法に基づく表記": "基于《特定商业交易法》的标示",
+    "ご注文からお届けまで": "从下单到送达",
+    "「購入する」から決済ページへ（クレジットカード・Apple Pay・Google Pay対応）": "点击「立即购买」进入支付页面（支持信用卡・Apple Pay・Google Pay）",
+    "お届け先とお支払い情報をご入力": "填写日本国内的收件地址与支付信息",
+    "冷蔵便で発送。2〜4日ほどでお届けします": "冷藏配送，约2〜4天送达",
     "タケウチマスタード（旨味・辛口）": "Takeuchi芥末酱（鲜味／辣味）",
     "〒940-0081 新潟県長岡市南町1-10-16": "邮编940-0081 新潟县长冈市南町1-10-16",
     "〒950-2111 新潟県新潟市西区大学南2-30-38": "邮编950-2111 新潟县新潟市西区大学南2-30-38",
@@ -320,7 +354,9 @@
     var bar = document.createElement("div");
     bar.className = "modebar";
     var bArt = document.createElement("button");
-    bar.appendChild(bArt);
+    // アニメ絵が用意されていないページ（通販など）では絵柄ボタンを出さない
+    var hasArt = imgs.some(function (it) { return it.anime; }) || slides.some(function (it) { return it.anime; });
+    if (hasArt) bar.appendChild(bArt);
     // 言語は3つとも並べて出す（「次の言語」だけ出すと日本語に戻れないように見える・masa指摘）
     var langGroup = document.createElement("span");
     langGroup.className = "langs";
