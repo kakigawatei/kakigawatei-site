@@ -89,8 +89,8 @@
       "Local mustard, basil, a mayo sauce made with Nagaoka vegetables and many more. We work with farmers and neighbouring kitchens so the bowl stays rooted in this region.",
     "油そばの召し上がり方": "How to enjoy abura soba",
     "酢とラー油をかける": "1. Vinegar and chili oil",
-    "初めに酢とラー油をどんぶり２〜３周程度回しかけてください。かけないと本来の油そばの味になりません。最低でも２周ほど、ためらわずにかけてください。":
-      "Pour vinegar and chili oil in two or three circles around the bowl. Without them it is not abura soba — so do not hold back.",
+    "初めに酢とラー油をどんぶり１〜２周程度回しかけてください。かけないと本来の油そばの味になりません。最低でも１周ほど、ためらわずにかけてください。":
+      "Pour vinegar and chili oil in one or two circles around the bowl. Without them it is not abura soba — so do not hold back.",
     "むらなく混ぜる": "2. Mix it well",
     "どんぶりの底にタレと油が敷いてあります。麺をひっくり返すようにむらなく混ぜてください。":
       "The sauce and oil are waiting at the bottom. Turn the noodles over and mix until every strand is coated.",
@@ -181,7 +181,7 @@
     "地元産のマスタードやバジル、長岡野菜を使ったマヨソースなど、多数のトッピングで自由にカスタマイズ。農家や飲食店と連携し、地元の食材を積極的に取り入れることで、地域とのつながりを大切にしています。": "本地产的芥末、罗勒，还有用长冈蔬菜做的蛋黄酱等，众多配料可自由搭配。我们与农户和同行合作，积极使用当地食材，重视与这片土地的联系。",
     "油そばの召し上がり方": "油拌面的吃法",
     "酢とラー油をかける": "1. 先加醋和辣油",
-    "初めに酢とラー油をどんぶり２〜３周程度回しかけてください。かけないと本来の油そばの味になりません。最低でも２周ほど、ためらわずにかけてください。": "先沿着碗边淋两到三圈醋和辣油。不加的话就吃不出油拌面本来的味道，请放心大胆地加。",
+    "初めに酢とラー油をどんぶり１〜２周程度回しかけてください。かけないと本来の油そばの味になりません。最低でも１周ほど、ためらわずにかけてください。": "先沿着碗边淋一到两圈醋和辣油。不加的话就吃不出油拌面本来的味道，请放心大胆地加。",
     "むらなく混ぜる": "2. 拌匀",
     "どんぶりの底にタレと油が敷いてあります。麺をひっくり返すようにむらなく混ぜてください。": "碗底铺着酱汁和油，请把面翻上来，均匀拌开。",
     "温かいうちに召し上がる": "3. 趁热吃",
