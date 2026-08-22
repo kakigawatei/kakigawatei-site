@@ -5,21 +5,31 @@
 /* --- 切替ボタン（右上・ヘッダーの下） --- */
 .modebar {
   position: fixed;
-  top: 58px;
   right: 16px;
+  bottom: 18px;          /* ヘッダーのナビと重なるので下に逃がした（masa指摘 2026-08-22） */
   z-index: 120;
   display: flex;
+  align-items: center;
   gap: 8px;
   font-family: "Lato", sans-serif;
 }
+.modebar .langs {
+  display: inline-flex;
+  gap: 0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.modebar .langs button { border-radius: 0; border-left-width: 0; }
+.modebar .langs button:first-child { border-radius: 999px 0 0 999px; border-left-width: 1px; }
+.modebar .langs button:last-child { border-radius: 0 999px 999px 0; }
 @media (max-width: 720px) {
-  .modebar { top: 52px; right: 10px; gap: 6px; }
+  .modebar { right: 10px; bottom: 12px; gap: 6px; }
 }
 .modebar button {
   appearance: none;
-  border: 1px solid rgba(255, 255, 255, .8);
-  background: rgba(0, 0, 0, .38);
-  color: #fff;
+  border: 1px solid rgba(26, 26, 26, .25);
+  background: rgba(255, 255, 255, .92);
+  color: #1a1a1a;
   border-radius: 999px;
   padding: 7px 14px;
   font-size: 12px;
@@ -32,11 +42,11 @@
 @media (max-width: 720px) {
   .modebar button { padding: 6px 11px; font-size: 11px; }
 }
-.modebar button:hover { background: rgba(0, 0, 0, .58); }
+.modebar button:hover { background: #fff; }
 .modebar button[aria-pressed="true"] {
-  background: #fff;
-  color: #b3342a;
-  border-color: #fff;
+  background: #b3342a;
+  color: #fff;
+  border-color: #b3342a;
   font-weight: 700;
 }
 /* ヒーローを過ぎたら地の色に馴染ませる */

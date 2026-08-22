@@ -59,6 +59,12 @@
   /* ---- 2. 日本語 → 英語の辞書（キーは画面に出ている文字そのもの） ---- */
   var DICT = {};
   DICT.en = {
+    "タケウチマスタード（旨味・辛口）": "Takeuchi mustard (umami / hot)",
+    "〒940-0081 新潟県長岡市南町1-10-16": "1-10-16 Minamimachi, Nagaoka, Niigata 940-0081",
+    "〒950-2111 新潟県新潟市西区大学南2-30-38": "2-30-38 Daigaku-minami, Nishi-ku, Niigata 950-2111",
+    "〒984-0053 宮城県仙台市若林区連坊小路81 熊谷ビル103": "Kumagai Bldg 103, 81 Renbo-koji, Wakabayashi-ku, Sendai, Miyagi 984-0053",
+    "〒951-8131 新潟県新潟市中央区白山浦2丁目180-3": "2-180-3 Hakusan-ura, Chuo-ku, Niigata 951-8131",
+    "〒960-0112 福島県福島市南矢野目古屋敷56-24": "56-24 Furuyashiki, Minami-yanome, Fukushima 960-0112",
     "私たちについて": "About",
     "こだわり": "Our Craft",
     "食べ方": "How to Eat",
@@ -150,6 +156,12 @@
   };
 
   DICT.zh = {
+    "タケウチマスタード（旨味・辛口）": "Takeuchi芥末酱（鲜味／辣味）",
+    "〒940-0081 新潟県長岡市南町1-10-16": "邮编940-0081 新潟县长冈市南町1-10-16",
+    "〒950-2111 新潟県新潟市西区大学南2-30-38": "邮编950-2111 新潟县新潟市西区大学南2-30-38",
+    "〒984-0053 宮城県仙台市若林区連坊小路81 熊谷ビル103": "邮编984-0053 宫城县仙台市若林区连坊小路81 熊谷大厦103",
+    "〒951-8131 新潟県新潟市中央区白山浦2丁目180-3": "邮编951-8131 新潟县新潟市中央区白山浦2丁目180-3",
+    "〒960-0112 福島県福島市南矢野目古屋敷56-24": "邮编960-0112 福岛县福岛市南矢野目古屋敷56-24",
     "私たちについて": "关于我们",
     "こだわり": "我们的坚持",
     "食べ方": "吃法",
@@ -308,8 +320,19 @@
     var bar = document.createElement("div");
     bar.className = "modebar";
     var bArt = document.createElement("button");
-    var bLang = document.createElement("button");
-    bar.appendChild(bArt); bar.appendChild(bLang);
+    bar.appendChild(bArt);
+    // 言語は3つとも並べて出す（「次の言語」だけ出すと日本語に戻れないように見える・masa指摘）
+    var langGroup = document.createElement("span");
+    langGroup.className = "langs";
+    var bLangs = {};
+    LANGS.forEach(function (lg) {
+      var b = document.createElement("button");
+      b.textContent = LANG_LABEL[lg];
+      b.addEventListener("click", function () { setLang(lg); paint(); });
+      langGroup.appendChild(b);
+      bLangs[lg] = b;
+    });
+    bar.appendChild(langGroup);
     document.body.appendChild(bar);
 
     window.__kgPaint = paint;
@@ -318,20 +341,16 @@
       bArt.textContent = anime ? "実写にもどす" : "アニメで見る";
       bArt.setAttribute("aria-pressed", anime ? "true" : "false");
       var lang = document.documentElement.dataset.lang || "ja";
-      var next = LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length];
-      bLang.textContent = LANG_LABEL[next];
-      bLang.setAttribute("aria-pressed", lang !== "ja" ? "true" : "false");
+      LANGS.forEach(function (lg) {
+        bLangs[lg].setAttribute("aria-pressed", lg === lang ? "true" : "false");
+      });
     }
 
     bArt.addEventListener("click", function () {
       setArt(document.documentElement.dataset.art === "anime" ? "real" : "anime");
       paint();
     });
-    bLang.addEventListener("click", function () {
-      var lang = document.documentElement.dataset.lang || "ja";
-      setLang(LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length]);
-      paint();
-    });
+
 
     // 前回の選択を覚えておく（?art=anime&lang=en でも指定できる＝共有リンク用）
     var savedArt = null, savedLang = null;
